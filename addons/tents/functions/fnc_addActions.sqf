@@ -23,50 +23,64 @@ if (!hasInterface) exitWith {};
 // The tent items are found by avo_tents_fnc_scanItems, before this
 if (GVAR(tentItems) isEqualTo []) exitWith {};
 
-// Parent container in the equipment menu, opens a sub-menu with one entry per carried tent
-private _setUp = [
-    QGVAR(setUp),
-    LLSTRING(setUp),
-    QPATHTOF(data\deploy_ca.paa),
-    {},
-    {
-        params ["", "_player"];
+// The 3D placement uses ACE functions that are not public API. Without them only the set up
+// actions are left out with a log line, pack up and the inventory do not need them.
+private _placeFunctions = [
+    QACEFUNC(common,addActionEventHandler),
+    QACEFUNC(common,removeActionEventHandler),
+    QACEFUNC(interaction,showMouseHint),
+    QACEFUNC(interaction,hideMouseHint)
+];
+private _missing = _placeFunctions select {isNil _x};
 
-        private _carried = items _player;
-
-        GVAR(enabled)
-        && {isNull objectParent _player}
-        && {GVAR(tentItems) findIf {(_x select 0) in _carried} != -1}
-    }
-] call ACEFUNC(interact_menu,createAction);
-
-// On the class, so the actions survive respawn and unit switching
-["CAManBase", 1, ["ACE_SelfActions", "ACE_Equipment"], _setUp, true] call ACEFUNC(interact_menu,addActionToClass);
-
-{
-    _x params ["_item", "_object"];
-
-    private _child = [
-        QGVAR(setUp) + "_" + _item,
-        getText (configFile >> "CfgWeapons" >> _item >> "displayName"),
+if (_missing isNotEqualTo []) then {
+    WARNING_1("ACE placement functions not found (%1), set up actions disabled",_missing);
+} else {
+    // Parent container in the equipment menu, opens a sub-menu with one entry per carried tent
+    private _setUp = [
+        QGVAR(setUp),
+        LLSTRING(setUp),
         QPATHTOF(data\deploy_ca.paa),
-        {
-            params ["", "_player", "_params"];
-            _params params ["_item", "_object"];
-
-            [_player, _item, _object] call FUNC(place);
-        },
-        {
-            params ["", "_player", "_params"];
-
-            (_params select 0) in items _player
-        },
         {},
-        [_item, _object]
+        {
+            params ["", "_player"];
+
+            private _carried = items _player;
+
+            GVAR(enabled)
+            && {isNull objectParent _player}
+            && {GVAR(tentItems) findIf {(_x select 0) in _carried} != -1}
+        }
     ] call ACEFUNC(interact_menu,createAction);
 
-    ["CAManBase", 1, ["ACE_SelfActions", "ACE_Equipment", QGVAR(setUp)], _child, true] call ACEFUNC(interact_menu,addActionToClass);
-} forEach GVAR(tentItems);
+    // On the class, so the actions survive respawn and unit switching
+    ["CAManBase", 1, ["ACE_SelfActions", "ACE_Equipment"], _setUp, true] call ACEFUNC(interact_menu,addActionToClass);
+
+    {
+        _x params ["_item", "_object"];
+
+        private _child = [
+            QGVAR(setUp) + "_" + _item,
+            getText (configFile >> "CfgWeapons" >> _item >> "displayName"),
+            QPATHTOF(data\deploy_ca.paa),
+            {
+                params ["", "_player", "_params"];
+                _params params ["_item", "_object"];
+
+                [_player, _item, _object] call FUNC(place);
+            },
+            {
+                params ["", "_player", "_params"];
+
+                (_params select 0) in items _player
+            },
+            {},
+            [_item, _object]
+        ] call ACEFUNC(interact_menu,createAction);
+
+        ["CAManBase", 1, ["ACE_SelfActions", "ACE_Equipment", QGVAR(setUp)], _child, true] call ACEFUNC(interact_menu,addActionToClass);
+    } forEach GVAR(tentItems);
+};
 
 // Where the actions are depends on the size of the tent, see avo_common_fnc_interactionPosition
 private _position = {[_target] call EFUNC(common,interactionPosition)};

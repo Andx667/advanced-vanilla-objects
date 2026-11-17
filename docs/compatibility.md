@@ -21,3 +21,16 @@ Misery supports GRAD persistence. A tent that is set up at runtime is not saved 
 ### Advanced Equipment
 
 Misery requires [Advanced Equipment](https://github.com/y0014984/Advanced-Equipment) (AE3). With it loaded, the [solar panel controls](objects/animations.md#solar-panels) of AVO are skipped, AE3 has its own. Everything else of AVO works as usual.
+
+## Updates of other mods
+
+Some features use functions of other mods that those mods do not offer as public API, because there is no public way to do the same:
+
+| Feature | Uses |
+| --- | --- |
+| [Weather](objects/weather.md) readout | ACE weather calculations |
+| [Tents](objects/tents.md): 3D placement | ACE mouse hints and the default action key handler |
+| [Antennas](objects/antennas.md): ACRE radio connection (`avo_antennas_acre`, `avo_antennas_gm_acre`) | ACRE ground spike antenna functions and events |
+| [Radios](objects/radios.md) (`avo_radios_armaradio`) | ArmaRadio's radio interface |
+
+AVO checks for them when the mission starts. When an update of the other mod renames or removes one, the feature turns itself off instead of throwing script errors, and the RPT log has a warning naming the missing functions. Everything else keeps working. Report it on the [issue tracker](https://github.com/Andx667/advanced_vanilla_objects/issues) so AVO can be updated.
