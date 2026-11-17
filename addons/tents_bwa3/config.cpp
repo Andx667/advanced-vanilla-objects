@@ -14,7 +14,7 @@ class CfgPatches {
         // requirement too, so it is skipped as well when the tents addon is.
         skipWhenMissingDependencies = 1;
         units[] = {
-            "Item_avo_tents_bwa3_smallFleck"
+            QUOTE(DOUBLES(Item,GVAR(smallFleck)))
         };
         weapons[] = {
             QGVAR(smallFleck)

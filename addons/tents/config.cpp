@@ -17,12 +17,12 @@ class CfgPatches {
         skipWhenMissingDependencies = 1;
         // The holders of the packed tents, Zeus lists them by the addon that has them
         units[] = {
-            "Item_avo_tents_solarOlive",
-            "Item_avo_tents_solarSand",
-            "Item_avo_tents_solarRedWhite",
-            "Item_avo_tents_solarBlueWhite",
-            "Item_avo_tents_dome",
-            "Item_avo_tents_a"
+            QUOTE(DOUBLES(Item,GVAR(solarOlive))),
+            QUOTE(DOUBLES(Item,GVAR(solarSand))),
+            QUOTE(DOUBLES(Item,GVAR(solarRedWhite))),
+            QUOTE(DOUBLES(Item,GVAR(solarBlueWhite))),
+            QUOTE(DOUBLES(Item,GVAR(dome))),
+            QUOTE(DOUBLES(Item,GVAR(a)))
         };
         weapons[] = {
             QGVAR(solarOlive),
