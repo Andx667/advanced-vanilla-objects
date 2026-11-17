@@ -7,7 +7,7 @@ class CfgVehicles {
     class ThingX;
     class Item_Base_F;
 
-    class Item_avo_tents_solarOlive: Item_Base_F {
+    class DOUBLES(Item,GVAR(solarOlive)): Item_Base_F {
         author = AUTHOR;
         scope = 2;
         scopeCurator = 2;
@@ -16,10 +16,10 @@ class CfgVehicles {
         model = "\A3\Weapons_F\DummyItemHorizontal.p3d";
 
         class TransportItems {
-            MACRO_ADDITEM(avo_tents_solarOlive,1);
+            MACRO_ADDITEM(GVAR(solarOlive),1);
         };
     };
-    class Item_avo_tents_solarSand: Item_Base_F {
+    class DOUBLES(Item,GVAR(solarSand)): Item_Base_F {
         author = AUTHOR;
         scope = 2;
         scopeCurator = 2;
@@ -28,10 +28,10 @@ class CfgVehicles {
         model = "\A3\Weapons_F\DummyItemHorizontal.p3d";
 
         class TransportItems {
-            MACRO_ADDITEM(avo_tents_solarSand,1);
+            MACRO_ADDITEM(GVAR(solarSand),1);
         };
     };
-    class Item_avo_tents_solarRedWhite: Item_Base_F {
+    class DOUBLES(Item,GVAR(solarRedWhite)): Item_Base_F {
         author = AUTHOR;
         scope = 2;
         scopeCurator = 2;
@@ -40,10 +40,10 @@ class CfgVehicles {
         model = "\A3\Weapons_F\DummyItemHorizontal.p3d";
 
         class TransportItems {
-            MACRO_ADDITEM(avo_tents_solarRedWhite,1);
+            MACRO_ADDITEM(GVAR(solarRedWhite),1);
         };
     };
-    class Item_avo_tents_solarBlueWhite: Item_Base_F {
+    class DOUBLES(Item,GVAR(solarBlueWhite)): Item_Base_F {
         author = AUTHOR;
         scope = 2;
         scopeCurator = 2;
@@ -52,10 +52,10 @@ class CfgVehicles {
         model = "\A3\Weapons_F\DummyItemHorizontal.p3d";
 
         class TransportItems {
-            MACRO_ADDITEM(avo_tents_solarBlueWhite,1);
+            MACRO_ADDITEM(GVAR(solarBlueWhite),1);
         };
     };
-    class Item_avo_tents_dome: Item_Base_F {
+    class DOUBLES(Item,GVAR(dome)): Item_Base_F {
         author = AUTHOR;
         scope = 2;
         scopeCurator = 2;
@@ -64,10 +64,10 @@ class CfgVehicles {
         model = "\A3\Weapons_F\DummyItemHorizontal.p3d";
 
         class TransportItems {
-            MACRO_ADDITEM(avo_tents_dome,1);
+            MACRO_ADDITEM(GVAR(dome),1);
         };
     };
-    class Item_avo_tents_a: Item_Base_F {
+    class DOUBLES(Item,GVAR(a)): Item_Base_F {
         author = AUTHOR;
         scope = 2;
         scopeCurator = 2;
@@ -76,7 +76,7 @@ class CfgVehicles {
         model = "\A3\Weapons_F\DummyItemHorizontal.p3d";
 
         class TransportItems {
-            MACRO_ADDITEM(avo_tents_a,1);
+            MACRO_ADDITEM(GVAR(a),1);
         };
     };
 
