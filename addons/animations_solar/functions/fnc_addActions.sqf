@@ -37,8 +37,7 @@ private _statement = {
 
     // Instant, the time in the config is for a change of 1, a step is much more than that
     private _phase = ((_target animationSourcePhase _source) + _delta) min _max max _min;
-    [QEGVAR(animations,animate), [_target, [[_source, _phase, true]]], _target] call CBA_fnc_targetEvent;
-    [QEGVAR(animations,changed), [_target, _id, [[_source, _phase]], _player]] call CBA_fnc_globalEvent;
+    [QEGVAR(animations,animate), [_target, [[_source, _phase, true]], _id, _player], _target] call CBA_fnc_targetEvent;
 };
 private _condition = {
     params ["_target", "_player", "_params"];

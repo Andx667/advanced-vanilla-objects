@@ -4,13 +4,15 @@ Mission makers and modders can react to the actions, prevent a tent from being p
 
 ## Events
 
-Every action raises a CBA event after it was used. They are raised with `CBA_fnc_globalEvent`, so they run on every machine, use `isServer` or `hasInterface` in the handler as needed. They are not raised when an object is changed with scripts (`animateSource`, ...) or in the editor.
+Every action raises a CBA event once what it does is complete. They are raised with `CBA_fnc_globalEvent`, so they run on every machine, use `isServer` or `hasInterface` in the handler as needed. They are not raised when an object is changed with scripts (`animateSource`, ...) or in the editor.
+
+The animation and antenna events are raised from the machine where the object is local, once the animation has got there: `avo_animations_changed` when every source has reached its phase, `avo_antennas_activated` as soon as the terminal or mast starts to open (it is active from then on), `avo_antennas_deactivated` once it is closed again (up to 15 seconds for a Rugged terminal). A change that is interrupted by another one raises nothing, the other one raises its own event. `avo_antennas_activated` and `avo_antennas_deactivated` are only raised when the state really changes.
 
 | Event | Payload | Raised when |
 | --- | --- | --- |
 | `avo_animations_changed` | `[object, control, changes, unit]` | An animation action is used, see [below](#avo_animations_changed) |
 | `avo_antennas_activated` | `[terminal, unit]` | A Rugged terminal is activated, or an antenna mast extended |
-| `avo_antennas_deactivated` | `[terminal, unit]` | A Rugged terminal is deactivated, or an antenna mast retracted |
+| `avo_antennas_deactivated` | `[terminal, unit]` | A Rugged terminal is deactivated, or an antenna mast retracted, once it is closed |
 | `avo_antennas_connected` | `[antenna, radioId, unit]` | A radio is connected to one of the antennas or terminals (needs `avo_antennas_acre`) |
 | `avo_antennas_disconnected` | `[antenna, unit, radioId]` | A radio is disconnected from one of them. `radioId` is `""` when ACRE does not tell it |
 | `avo_tents_setUp` | `[tent, unit, item]` | A tent is set up from a tent item |
@@ -111,6 +113,15 @@ Adds an ACE interaction to a class and every class derived from it. Does the sam
 | 2 | `ARRAY` | Action from `ace_interact_menu_fnc_createAction` |
 | 3 | `ARRAY of STRING` | Classes that are left out, with everything derived from them (default `[]`) |
 
+Returns nothing.
+
+Local: the action is only added on the machine that calls it, like `ace_interact_menu_fnc_addActionToClass`. Call it on every machine with an interface (`hasInterface`) in `postInit`, once per action.
+
+```sqf
+private _action = ["MYTAG_hello", "Say Hello", "", {systemChat "Hello"}, {true}] call ace_interact_menu_fnc_createAction;
+["Land_Fridge_01_F", [], _action] call avo_common_fnc_addClassActions;
+```
+
 ### `avo_common_fnc_interactionPosition`
 
 The point for an ACE interaction on an object, for the position code of `ace_interact_menu_fnc_createAction`. It depends on the size of the object, see [Where the action is](usage.md#where-the-action-is).
@@ -122,8 +133,11 @@ The point for an ACE interaction on an object, for the position code of `ace_int
 
 Returns the position in model space of the object.
 
+Local: runs on any machine, but for big objects without one of the selections the point depends on the local player (`ACE_player`), so it is meant for the position code of an action. It runs every frame while the action is in range, the result of the selection lookup is kept for each class.
+
 ```sqf
 {[_target] call avo_common_fnc_interactionPosition}
+{[_target, ["Door_1"]] call avo_common_fnc_interactionPosition}
 ```
 
 ### `avo_common_fnc_topPosition`
@@ -134,6 +148,10 @@ The position of the top centre of an object's bounding box, in ASL. Follows the 
 | --- | --- | --- |
 | 0 | `OBJECT` | Object |
 | 1 | `NUMBER` | Offset above the top, in model space (default `0`) |
+
+Returns the position in ASL.
+
+Local: runs on any machine, the result is the same everywhere.
 
 ```sqf
 [cursorObject, 0.5] call avo_common_fnc_topPosition

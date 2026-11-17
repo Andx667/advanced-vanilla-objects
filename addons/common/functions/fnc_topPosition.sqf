@@ -20,7 +20,7 @@
  * Public: Yes
  */
 
-params ["_object", ["_offset", 0, [0]]];
+params [["_object", objNull, [objNull]], ["_offset", 0, [0]]];
 
 (boundingBoxReal _object) params ["_min", "_max"];
 

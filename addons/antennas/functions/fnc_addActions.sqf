@@ -35,8 +35,7 @@ private _activate = [
     "\a3\ui_f\data\IGUI\Cfg\Actions\ico_ON_ca.paa",
     {
         params ["_target", "_player"];
-        [QGVAR(setActive), [_target, true], _target] call CBA_fnc_targetEvent;
-        [QGVAR(activated), [_target, _player]] call CBA_fnc_globalEvent;
+        [QGVAR(setActive), [_target, true, _player], _target] call CBA_fnc_targetEvent;
     },
     {
         params ["_target"];
@@ -54,8 +53,7 @@ private _deactivate = [
     "\a3\ui_f\data\IGUI\Cfg\Actions\ico_OFF_ca.paa",
     {
         params ["_target", "_player"];
-        [QGVAR(setActive), [_target, false], _target] call CBA_fnc_targetEvent;
-        [QGVAR(deactivated), [_target, _player]] call CBA_fnc_globalEvent;
+        [QGVAR(setActive), [_target, false, _player], _target] call CBA_fnc_targetEvent;
     },
     {
         params ["_target"];
