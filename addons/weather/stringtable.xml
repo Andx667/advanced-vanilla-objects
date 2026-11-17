@@ -9,6 +9,10 @@
             <English>Enable weather station readout</English>
             <German>Wetterstation-Ablesung aktivieren</German>
         </Key>
+        <Key ID="STR_avo_weather_compassPoints">
+            <English>N,NNE,NE,ENE,E,ESE,SE,SSE,S,SSW,SW,WSW,W,WNW,NW,NNW</English>
+            <German>N,NNO,NO,ONO,O,OSO,SO,SSO,S,SSW,SW,WSW,W,WNW,NW,NNW</German>
+        </Key>
         <Key ID="STR_avo_weather_dewPoint">
             <English>Dew point: %1 °C</English>
             <German>Taupunkt: %1 °C</German>
