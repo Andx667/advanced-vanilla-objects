@@ -13,6 +13,10 @@ version, and start a fresh empty [Unreleased] section above it. -->
 
 ## [Unreleased]
 
+### Changed
+
+* Antennas, Weather - Change ACRE antenna names and compass points to be translated (#35) by @Andx667
+
 ## [1.4.1] - 2026-11-01
 
 ### Changed
