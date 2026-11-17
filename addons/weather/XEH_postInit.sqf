@@ -2,6 +2,21 @@
 
 if (!hasInterface) exitWith {};
 
+// The readout uses ACE weather functions that are not public API, so bail out with a log line rather
+// than throwing errors from the interaction menu if ACE ever renames them.
+private _aceFunctions = [
+    QACEFUNC(weather,calculateWindSpeed),
+    QACEFUNC(weather,calculateTemperatureAtHeight),
+    QACEFUNC(weather,calculateBarometricPressure),
+    QACEFUNC(weather,calculateDewPoint),
+    QACEFUNC(weather,calculateWindChill),
+    QACEFUNC(weather,calculateHeatIndex)
+];
+private _missing = _aceFunctions select {isNil _x};
+if (_missing isNotEqualTo []) exitWith {
+    WARNING_1("ACE weather functions not found (%1), interactions disabled",_missing);
+};
+
 private _readData = [
     QGVAR(readData),
     LLSTRING(readData),
