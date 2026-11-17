@@ -4,13 +4,15 @@ Mission makers and modders can react to the actions, prevent a tent from being p
 
 ## Events
 
-Every action raises a CBA event after it was used. They are raised with `CBA_fnc_globalEvent`, so they run on every machine, use `isServer` or `hasInterface` in the handler as needed. They are not raised when an object is changed with scripts (`animateSource`, ...) or in the editor.
+Every action raises a CBA event once what it does is complete. They are raised with `CBA_fnc_globalEvent`, so they run on every machine, use `isServer` or `hasInterface` in the handler as needed. They are not raised when an object is changed with scripts (`animateSource`, ...) or in the editor.
+
+The animation and antenna events are raised from the machine where the object is local, once the animation has got there: `avo_animations_changed` when every source has reached its phase, `avo_antennas_activated` as soon as the terminal or mast starts to open (it is active from then on), `avo_antennas_deactivated` once it is closed again (up to 15 seconds for a Rugged terminal). A change that is interrupted by another one raises nothing, the other one raises its own event. `avo_antennas_activated` and `avo_antennas_deactivated` are only raised when the state really changes.
 
 | Event | Payload | Raised when |
 | --- | --- | --- |
 | `avo_animations_changed` | `[object, control, changes, unit]` | An animation action is used, see [below](#avo_animations_changed) |
 | `avo_antennas_activated` | `[terminal, unit]` | A Rugged terminal is activated, or an antenna mast extended |
-| `avo_antennas_deactivated` | `[terminal, unit]` | A Rugged terminal is deactivated, or an antenna mast retracted |
+| `avo_antennas_deactivated` | `[terminal, unit]` | A Rugged terminal is deactivated, or an antenna mast retracted, once it is closed |
 | `avo_antennas_connected` | `[antenna, radioId, unit]` | A radio is connected to one of the antennas or terminals (needs `avo_antennas_acre`) |
 | `avo_antennas_disconnected` | `[antenna, unit, radioId]` | A radio is disconnected from one of them. `radioId` is `""` when ACRE does not tell it |
 | `avo_tents_setUp` | `[tent, unit, item]` | A tent is set up from a tent item |

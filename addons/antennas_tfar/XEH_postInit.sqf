@@ -9,8 +9,8 @@ if (isNil QTFARFUNC(antennas,initRadioTower) || {isNil QTFARFUNC(antennas,delete
 // Rugged terminals and the GM antenna mast are covered here in addition to
 // Extended_InitPost/Deleted_EventHandlers (CfgEventHandlers.hpp), because they can be switched on
 // and off after they exist, unlike the satellite dishes and omni-directional antennas. Not with
-// updateTower: the animation that switches them has only just started when the event arrives, so
-// avo_antennas_fnc_isActive would not see the change yet.
+// updateTower: the events are raised where the object is local, its animation phase can reach this
+// client a moment later, so avo_antennas_fnc_isActive could not see the change yet.
 [QEGVAR(antennas,activated), {
     params ["_terminal"];
     [_terminal] call FUNC(registerTower);

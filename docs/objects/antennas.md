@@ -25,7 +25,7 @@ With optional addon `avo_antennas_tfar` and [TFAR](https://github.com/michail-ni
 
 ### Rugged communications terminals
 
-Sub menu **Terminal** with **Activate Terminal** and **Deactivate Terminal**, and (needs `avo_antennas_acre`) **Connect Radio** and **Disconnect Radio** once the terminal is active. Activating does the same as the *Open terminal* attribute in the editor. A radio that is still connected is disconnected when the terminal is deactivated.
+Sub menu **Terminal** with **Activate Terminal** and **Deactivate Terminal**, and (needs `avo_antennas_acre`) **Connect Radio** and **Disconnect Radio** once the terminal is active. Activating does the same as the *Open terminal* attribute in the editor. A radio that is still connected is disconnected once the deactivated terminal is closed.
 
 `RuggedTerminal_01_communications_F`, `RuggedTerminal_01_communications_hub_F`, `RuggedTerminal_02_communications_F`
 
@@ -33,4 +33,4 @@ Sub menu **Terminal** with **Activate Terminal** and **Deactivate Terminal**, an
 
 The command shelters have an antenna mast as an option, the editor attributes *Add antenna* and *Elevate antenna*. The actions are on the base class `gm_shelteraceI_command_base`, so they are on every shelter derived from it, for example `gm_ge_army_shelteraceI_command`. Needs Global Mobilization, addon `avo_antennas_gm`.
 
-Shelters with the antenna have the sub menu **Antenna** with **Extend Antenna** and **Retract Antenna**, and (needs `avo_antennas_gm_acre`, Global Mobilization and ACRE2 together) **Connect Radio** and **Disconnect Radio** once the mast is extended. Extending does the same as *Elevate antenna* in the editor, and takes as long as the mast needs to go up. A radio that is still connected is disconnected when the antenna is retracted. Shelters without the antenna have no actions. TFAR needs no extra addon for the mast, `avo_antennas_tfar` covers it once `avo_antennas_gm` is loaded.
+Shelters with the antenna have the sub menu **Antenna** with **Extend Antenna** and **Retract Antenna**, and (needs `avo_antennas_gm_acre`, Global Mobilization and ACRE2 together) **Connect Radio** and **Disconnect Radio** once the mast is extended. Extending does the same as *Elevate antenna* in the editor, and takes as long as the mast needs to go up. A radio that is still connected is disconnected once the antenna is retracted. Shelters without the antenna have no actions. TFAR needs no extra addon for the mast, `avo_antennas_tfar` covers it once `avo_antennas_gm` is loaded.
