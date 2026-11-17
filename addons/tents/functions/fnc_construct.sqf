@@ -44,10 +44,10 @@ private _grassCutter = switch (true) do {
 
 _tent setVariable [QGVAR(grassCutter), _grassCutter, true];
 
-{
-    _x addCuratorEditableObjects [[_tent, _grassCutter], false];
-} forEach allCurators;
+// addCuratorEditableObjects only works on the server
+[QGVAR(addToCurators), [[_tent, _grassCutter]]] call CBA_fnc_serverEvent;
 
 [QGVAR(setUp), [_tent, _caller, _item]] call CBA_fnc_globalEvent;
 
-_caller switchMove "";
+// switchMove has a local effect, the other players would still see the animation
+[_caller, "", 2] call ACEFUNC(common,doAnimation);

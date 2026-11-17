@@ -47,6 +47,7 @@ if (_caller canAdd [_item, 1]) then {
 };
 
 [QGVAR(packedUp), [_classname, _posASL, _vectorDirAndUp, _caller, _item]] call CBA_fnc_globalEvent;
-_caller switchMove "";
+// switchMove has a local effect, the other players would still see the animation
+[_caller, "", 2] call ACEFUNC(common,doAnimation);
 
 [LLSTRING(packedUp)] call ACEFUNC(common,displayText);

@@ -17,6 +17,10 @@ version, and start a fresh empty [Unreleased] section above it. -->
 
 ## [Unreleased]
 
+### Fixed
+
+* Tents - Fix Zeus and animation reset on dedicated servers (#29) by @Andx667
+
 ### Changed
 
 * Animations, Antennas - Change events to be raised when the change is complete (#32) by @Andx667
