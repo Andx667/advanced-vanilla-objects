@@ -13,6 +13,10 @@ version, and start a fresh empty [Unreleased] section above it. -->
 
 ## [Unreleased]
 
+### Changed
+
+* Common - Change public functions to check their argument types (#33) by @Andx667
+
 ## [1.4.1] - 2026-11-01
 
 ### Changed
