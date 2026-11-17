@@ -72,8 +72,7 @@ private _toggle = {
         params ["_target", "_player", "_params"];
         _params params ["_sources", "_names", "_index", "_instant", "_id"];
 
-        [QGVAR(animate), [_target, _sources apply {[_x select 0, _x select _index, _instant]}], _target] call CBA_fnc_targetEvent;
-        [QGVAR(changed), [_target, _id, _sources apply {[_x select 0, _x select _index]}, _player]] call CBA_fnc_globalEvent;
+        [QGVAR(animate), [_target, _sources apply {[_x select 0, _x select _index, _instant]}, _id, _player], _target] call CBA_fnc_targetEvent;
     };
     // Index 2 changes to B and is shown in A, index 1 changes to A and is shown in B
     private _condition = {
@@ -102,8 +101,7 @@ private _set = {
         params ["_target", "_player", "_params"];
         _params params ["_source", "_value", "_id"];
 
-        [QGVAR(animate), [_target, [[_source, _value]]], _target] call CBA_fnc_targetEvent;
-        [QGVAR(changed), [_target, _id, [[_source, _value]], _player]] call CBA_fnc_globalEvent;
+        [QGVAR(animate), [_target, [[_source, _value]], _id, _player], _target] call CBA_fnc_targetEvent;
     };
     private _condition = {
         params ["_target", "_player", "_params"];

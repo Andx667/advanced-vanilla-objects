@@ -25,7 +25,7 @@ With optional addon `avo_antennas_tfar` and [TFAR](https://github.com/michail-ni
 
 ### Rugged communications terminals
 
-Sub menu **Terminal** with **Activate Terminal** and **Deactivate Terminal**, and (needs `avo_antennas_acre`) **Connect Radio** and **Disconnect Radio** once the terminal is active. Activating does the same as the *Open terminal* attribute in the editor. A radio that is still connected is disconnected when the terminal is deactivated.
+Sub menu **Terminal** with **Activate Terminal** and **Deactivate Terminal**, and (needs `avo_antennas_acre`) **Connect Radio** and **Disconnect Radio** once the terminal is active. Activating does the same as the *Open terminal* attribute in the editor. A radio that is still connected is disconnected once the deactivated terminal is closed.
 
 `RuggedTerminal_01_communications_F`, `RuggedTerminal_01_communications_hub_F`, `RuggedTerminal_02_communications_F`
 
