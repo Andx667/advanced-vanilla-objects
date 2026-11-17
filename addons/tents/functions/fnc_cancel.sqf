@@ -20,7 +20,8 @@
 params ["_caller", ["_tent", objNull]];
 
 [LLSTRING(abort), true] call ACEFUNC(common,displayText);
-_caller switchMove "";
+// switchMove has a local effect, the other players would still see the animation
+[_caller, "", 2] call ACEFUNC(common,doAnimation);
 
 if (!isNull _tent) then {
     _tent setVariable [QGVAR(inUse), false, true];

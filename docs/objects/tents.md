@@ -38,6 +38,8 @@ The server also decides that a tent is empty when it is packed up, so what anoth
 
 The packed tents are listed in Eden and Zeus under **Equipment** → **Items**, as `Item_` and the item class, for example `Item_avo_tents_dome`. Players take them from the ground like any item. The folded solar tents of the game (`Land_TentSolar_01_folded_*_F`) are only scenery, they cannot be picked up.
 
+A tent that a player sets up can be edited by every Zeus, also on a dedicated server.
+
 The pack up and inventory actions are only for these exact classes, not for the classes derived from them. Other mods can add their own tents, see [Adding tents](../scripting.md#adding-tents).
 
 The larger tents (decon, connector and medical tents) are not packable, they only have [door actions](animations.md#tents).

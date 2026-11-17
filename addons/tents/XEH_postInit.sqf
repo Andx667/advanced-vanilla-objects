@@ -16,6 +16,15 @@ if (isServer) then {
     }] call CBA_fnc_addEventHandler;
 
     [QGVAR(commitPackUp), FUNC(commitPackUp)] call CBA_fnc_addEventHandler;
+
+    // A tent that is set up can be edited by every Zeus, see avo_tents_fnc_construct
+    [QGVAR(addToCurators), {
+        params [["_objects", [], [[]]]];
+
+        {
+            _x addCuratorEditableObjects [_objects, false];
+        } forEach allCurators;
+    }] call CBA_fnc_addEventHandler;
 };
 
 if (!hasInterface) exitWith {};
