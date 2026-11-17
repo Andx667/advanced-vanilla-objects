@@ -13,6 +13,10 @@ version, and start a fresh empty [Unreleased] section above it. -->
 
 ## [Unreleased]
 
+### Fixed
+
+* Tents - Fix Zeus and animation reset on dedicated servers (#29) by @Andx667
+
 ## [1.4.1] - 2026-11-01
 
 ### Changed
