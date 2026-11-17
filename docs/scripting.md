@@ -111,6 +111,15 @@ Adds an ACE interaction to a class and every class derived from it. Does the sam
 | 2 | `ARRAY` | Action from `ace_interact_menu_fnc_createAction` |
 | 3 | `ARRAY of STRING` | Classes that are left out, with everything derived from them (default `[]`) |
 
+Returns nothing.
+
+Local: the action is only added on the machine that calls it, like `ace_interact_menu_fnc_addActionToClass`. Call it on every machine with an interface (`hasInterface`) in `postInit`, once per action.
+
+```sqf
+private _action = ["MYTAG_hello", "Say Hello", "", {systemChat "Hello"}, {true}] call ace_interact_menu_fnc_createAction;
+["Land_Fridge_01_F", [], _action] call avo_common_fnc_addClassActions;
+```
+
 ### `avo_common_fnc_interactionPosition`
 
 The point for an ACE interaction on an object, for the position code of `ace_interact_menu_fnc_createAction`. It depends on the size of the object, see [Where the action is](usage.md#where-the-action-is).
@@ -122,8 +131,11 @@ The point for an ACE interaction on an object, for the position code of `ace_int
 
 Returns the position in model space of the object.
 
+Local: runs on any machine, but for big objects without one of the selections the point depends on the local player (`ACE_player`), so it is meant for the position code of an action. It runs every frame while the action is in range, the result of the selection lookup is kept for each class.
+
 ```sqf
 {[_target] call avo_common_fnc_interactionPosition}
+{[_target, ["Door_1"]] call avo_common_fnc_interactionPosition}
 ```
 
 ### `avo_common_fnc_topPosition`
@@ -134,6 +146,10 @@ The position of the top centre of an object's bounding box, in ASL. Follows the 
 | --- | --- | --- |
 | 0 | `OBJECT` | Object |
 | 1 | `NUMBER` | Offset above the top, in model space (default `0`) |
+
+Returns the position in ASL.
+
+Local: runs on any machine, the result is the same everywhere.
 
 ```sqf
 [cursorObject, 0.5] call avo_common_fnc_topPosition
