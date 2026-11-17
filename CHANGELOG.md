@@ -13,6 +13,10 @@ version, and start a fresh empty [Unreleased] section above it. -->
 
 ## [Unreleased]
 
+### Changed
+
+* Animations, Antennas - Change events to be raised when the change is complete (#32) by @Andx667
+
 ## [1.4.1] - 2026-11-01
 
 ### Changed
