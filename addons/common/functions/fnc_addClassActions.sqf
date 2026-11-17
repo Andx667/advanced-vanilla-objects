@@ -25,7 +25,7 @@
  * Public: Yes
  */
 
-params ["_base", "_path", "_action", ["_excluded", [], [[]]]];
+params [["_base", "", [""]], ["_path", [], [[]]], ["_action", [], [[]]], ["_excluded", [], [[]]]];
 
 private _cfgVehicles = configFile >> "CfgVehicles";
 
