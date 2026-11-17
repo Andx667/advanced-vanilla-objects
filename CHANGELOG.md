@@ -13,6 +13,10 @@ version, and start a fresh empty [Unreleased] section above it. -->
 
 ## [Unreleased]
 
+### Changed
+
+* Antennas - Change GM antenna mast TFAR support to its own compat addon `avo_antennas_gm_tfar` (#34) by @Andx667
+
 ## [1.4.1] - 2026-11-01
 
 ### Changed
