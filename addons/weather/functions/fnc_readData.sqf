@@ -36,7 +36,8 @@ if (_windSpeed < 0.3) then {
 } else {
     // `wind` points where the wind blows to, report where it comes from
     private _windFrom = (180 + ((wind select 0) atan2 (wind select 1))) % 360;
-    private _directions = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
+    // The 16 points of the compass from north, clockwise
+    private _directions = LLSTRING(compassPoints) splitString ",";
     _lines pushBack format [LLSTRING(wind), _windSpeed toFixed 1, round _windFrom, _directions select (round (_windFrom / 22.5) % 16)];
 };
 
