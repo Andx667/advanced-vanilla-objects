@@ -9,6 +9,18 @@
             <English>Enable ACRE antenna connections</English>
             <German>ACRE-Antennenverbindungen aktivieren</German>
         </Key>
+        <Key ID="STR_avo_antennas_acre_component_omni">
+            <English>Omni-Directional Antenna</English>
+            <German>Rundstrahlantenne</German>
+        </Key>
+        <Key ID="STR_avo_antennas_acre_component_omniShort">
+            <English>Omni Antenna</English>
+            <German>Rundstrahlantenne</German>
+        </Key>
+        <Key ID="STR_avo_antennas_acre_component_satDish">
+            <English>Satellite Antenna</English>
+            <German>Satellitenantenne</German>
+        </Key>
         <Key ID="STR_avo_antennas_acre_connect">
             <English>Connect Radio</English>
             <German>Funkgerät verbinden</German>

@@ -1,8 +1,8 @@
 #include "script_component.hpp"
 
 // Only base game addons are required next to ArmaRadio, the classes of the DLCs (Heli, Apex, Argo, Contact)
-// are not patched in CfgVehicles.hpp but enabled by name in CfgEventHandlers.hpp, so this addon still
-// loads without those DLCs.
+// are not patched in CfgVehicles.hpp but only get the action by name in XEH_postInit.sqf, so this addon
+// still loads without those DLCs.
 class CfgPatches {
     class ADDON {
         name = COMPONENT_NAME;
