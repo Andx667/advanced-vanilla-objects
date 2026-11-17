@@ -16,7 +16,7 @@ The laptops cover every variant derived from them: the closed and unfolded ones,
 
 ## Without the DLCs
 
-The addon only needs the base game. The tablets of the Helicopters (`Land_Tablet_01_F`) and Apex (`Land_Tablet_02_F`) DLCs and the laptops of the Argo (`Land_Laptop_02_F`) and Contact (`Land_Laptop_03_*`) DLCs are told to ArmaRadio by name when they are created, so they are used when the DLC is loaded and the addon loads without it.
+The addon only needs the base game. The tablets of the Helicopters (`Land_Tablet_01_F`) and Apex (`Land_Tablet_02_F`) DLCs and the laptops of the Argo (`Land_Laptop_02_F`) and Contact (`Land_Laptop_03_*`) DLCs get the action by their class name, so they are used when the DLC is loaded and the addon loads without it.
 
 ## Other objects
 

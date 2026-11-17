@@ -11,7 +11,8 @@ class CfgVehicles {
 
     // The base game laptops. Land_Laptop_unfolded_F also covers the scripted and the Intel laptops,
     // Land_Laptop_device_F and the other variants derived from it. The Argo and Contact laptops
-    // are enabled in CfgEventHandlers.hpp.
+    // are not patched, they would need those DLCs to be loaded. They only get the action by name in
+    // XEH_postInit.sqf, ArmaRadio's interface opens without the flag.
     class Land_Laptop_F: Items_base_F {
         live_radio_interface_hasRadio = 1;
     };
