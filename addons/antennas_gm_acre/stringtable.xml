@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="avo">
+    <Package name="antennas_gm_acre">
+        <Key ID="STR_avo_antennas_gm_acre_component_mast">
+            <English>Antenna Mast</English>
+            <German>Antennenmast</German>
+        </Key>
+    </Package>
+</Project>
