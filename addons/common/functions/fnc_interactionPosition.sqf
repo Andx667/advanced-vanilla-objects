@@ -24,7 +24,7 @@
  * Public: Yes
  */
 
-params ["_object", ["_selections", [], [[]]]];
+params [["_object", objNull, [objNull]], ["_selections", [], [[]]]];
 
 (boundingBoxReal _object) params ["_min", "_max"];
 

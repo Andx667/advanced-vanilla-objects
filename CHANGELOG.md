@@ -19,6 +19,7 @@ version, and start a fresh empty [Unreleased] section above it. -->
 
 ### Changed
 
+* Common - Change public functions to check their argument types (#33) by @Andx667
 * Antennas - Change GM antenna mast TFAR support to its own compat addon `avo_antennas_gm_tfar` (#34) by @Andx667
 * Antennas, Weather - Change ACRE antenna names and compass points to be translated (#35) by @Andx667
 
