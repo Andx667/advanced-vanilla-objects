@@ -1,9 +1,9 @@
-# Advanced Vanilla Objects (advanced_vanilla_objects)
+# Advanced Vanilla Objects (advanced-vanilla-objects)
 
 Arma 3 mod built on CBA and ACE, packaged with HEMTT. It runs inside large modsets next to other mods and must load cleanly beside them; other mods and missions should be able to build on it.
 
 - **Prefix**: `avo` (globals `avo_<component>_*`, classnames `avo_*`)
-- **Docs**: `docs/` (MkDocs, published to <https://andx667.github.io/advanced_vanilla_objects/>)
+- **Docs**: `docs/` (MkDocs, published to <https://andx667.github.io/advanced-vanilla-objects/>)
 - **Hard dependencies**: CBA_A3, ACE3, Arma 3 Contact (optional: ACRE2, TFAR, ArmaRadio, BWA3, GM through their own addons)
 
 ## Guiding principles

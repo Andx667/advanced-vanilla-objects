@@ -1,8 +1,8 @@
 site_name: Advanced Vanilla Objects
 site_description: An Arma 3 mod that fills vanilla objects with the functions they should have had.
-site_url: https://andx667.github.io/advanced_vanilla_objects/
-repo_name: Andx667/advanced_vanilla_objects
-repo_url: https://github.com/Andx667/advanced_vanilla_objects
+site_url: https://andx667.github.io/advanced-vanilla-objects/
+repo_name: Andx667/advanced-vanilla-objects
+repo_url: https://github.com/Andx667/advanced-vanilla-objects
 edit_uri: edit/main/docs/
 
 theme:

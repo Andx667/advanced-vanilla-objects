@@ -35,12 +35,12 @@ AVO matches nicely with the survival framework [Misery](https://github.com/Tenur
 
 Fully open-source. Bug reports, feature requests, and contributions are all welcome.
 
-[Documentation](https://andx667.github.io/advanced_vanilla_objects/)
-[GitHub Repository](https://github.com/Andx667/advanced_vanilla_objects)
-[Report an Issue](https://github.com/Andx667/advanced_vanilla_objects/issues)
+[Documentation](https://andx667.github.io/advanced-vanilla-objects/)
+[GitHub Repository](https://github.com/Andx667/advanced-vanilla-objects)
+[Report an Issue](https://github.com/Andx667/advanced-vanilla-objects/issues)
 [Discord](https://discord.gg/ag4v6kxYAa)
 
-Licensed under [MIT](https://github.com/Andx667/advanced_vanilla_objects/blob/main/LICENSE).
+Licensed under [MIT](https://github.com/Andx667/advanced-vanilla-objects/blob/main/LICENSE).
 
 ---
 
