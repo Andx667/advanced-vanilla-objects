@@ -6,7 +6,7 @@ class CfgPatches {
     class ADDON {
         name = COMPONENT_NAME;
         author = AUTHOR;
-        url = "https://github.com/Andx667/advanced_vanilla_objects";
+        url = "https://github.com/Andx667/advanced-vanilla-objects";
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
             "avo_main",

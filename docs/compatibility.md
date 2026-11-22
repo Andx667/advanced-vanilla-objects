@@ -33,4 +33,4 @@ Some features use functions of other mods that those mods do not offer as public
 | [Antennas](objects/antennas.md): ACRE radio connection (`avo_antennas_acre`, `avo_antennas_gm_acre`) | ACRE ground spike antenna functions and events |
 | [Radios](objects/radios.md) (`avo_radios_armaradio`) | ArmaRadio's radio interface |
 
-AVO checks for them when the mission starts. When an update of the other mod renames or removes one, the feature turns itself off instead of throwing script errors, and the RPT log has a warning naming the missing functions. Everything else keeps working. Report it on the [issue tracker](https://github.com/Andx667/advanced_vanilla_objects/issues) so AVO can be updated.
+AVO checks for them when the mission starts. When an update of the other mod renames or removes one, the feature turns itself off instead of throwing script errors, and the RPT log has a warning naming the missing functions. Everything else keeps working. Report it on the [issue tracker](https://github.com/Andx667/advanced-vanilla-objects/issues) so AVO can be updated.
